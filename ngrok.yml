@@ -1,0 +1,6 @@
+tunnels:
+  my-tunnel:
+    addr: 3000
+    proto: http
+    headers:
+      ngrok-skip-browser-warning: "true"

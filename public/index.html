@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Viewer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <img id="uploadedImage" src="" alt="Uploaded Image">
+    
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+        
+        function displayImage() {
+            const imageUrl = getQueryParam('url');
+            const imageElement = document.getElementById('uploadedImage');
+            if (imageUrl) {
+                imageElement.src = imageUrl;
+            } else {
+                imageElement.alt = 'No image provided';
+            }
+        }
+
+        displayImage();
+    </script>
+</body>
+</html>
